@@ -16,7 +16,8 @@ int perf_init( struct perf_event_attr *attr ) {
   int fd = -1;
 
   if ( (fd = sys_perf_event_open(attr, getpid(), -1, -1, 0)) < 0 || errno != 0 ) {
-    perror("sys_perf_event_open, errno:%d\n", errno);
+    perror("sys_perf_event_open");
+    printf("errno:%d\n", errno);
 
     if ( fd >= 0 ) close(fd);
     return -1;
