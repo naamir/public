@@ -3,7 +3,7 @@
  * License: GPLv2+
  *
  */
-
+#include <errno.h>
 #include "perf.h"
 
 static int sys_perf_event_open( struct perf_event_attr *attr, pid_t pid,
