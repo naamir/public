@@ -15,7 +15,7 @@ static int sys_perf_event_open( struct perf_event_attr *attr, pid_t pid,
 int perf_init( struct perf_event_attr *attr ) {
   int fd = -1;
 
-  if ( (fd = sys_perf_event_open(attr, getpid(), -1, -1, 0)) < 0 || errno != 0 ) {
+  if ( (fd = sys_perf_event_open(attr, getpid(), "arm", -1, 0)) < 0 || errno != 0 ) {
     perror("sys_perf_event_open");
     printf("errno:%d\n", errno);
 
