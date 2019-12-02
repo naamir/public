@@ -15,9 +15,14 @@ static int sys_perf_event_open( struct perf_event_attr *attr, pid_t pid,
 int perf_init( struct perf_event_attr *attr ) {
   int fd = -1;
 
+<<<<<<< HEAD
   if ( (fd = sys_perf_event_open(attr, getpid(), "arm", -1, 0)) < 0 || errno != 0 ) {
     perror("sys_perf_event_open");
     printf("errno:%d\n", errno);
+=======
+  if ( (fd = sys_perf_event_open(attr, getpid(), -1, -1, 0)) < 0 || errno != 0 ) {
+    perror("sys_perf_event_open, errno:%d\n", errno);
+>>>>>>> parent of 36ab2e7... added errno in printf
 
     if ( fd >= 0 ) close(fd);
     return -1;
